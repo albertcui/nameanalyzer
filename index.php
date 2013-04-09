@@ -162,9 +162,9 @@ for($i = 0; $i < count($friendNames); $i++)
                  echo "Number female: ".$numFemale;
                                                  echo "<br>";
 
-                echo "Longest name: ".$array[$longest]." (".strlen($array[$longest]).")";
+                echo "Longest name: ".$friendNames[$longest]." (".strlen($friendNames[$longest]).")";
                 echo "<br>";
-                echo "Shortest name: ".$array[$shortest]." (".strlen($array[$shortest]).")";
+                echo "Shortest name: ".$friendNames[$shortest]." (".strlen($friendNames[$shortest]).")";
                   echo "<br>";
 
                           //most vowels
