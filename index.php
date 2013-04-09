@@ -105,7 +105,7 @@ $userId = $facebook->getUser();
 
         <small>*This person is amazing.</small><br>
 
-<span class="lead">;
+<span class="lead">
         <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
