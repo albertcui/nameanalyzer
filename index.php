@@ -72,42 +72,8 @@ $facebook = new Facebook(array(
 ));
 
 $userId = $facebook->getUser();
-?>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <p class="lead">
-        A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
-        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
-      </p>
-
-<div class="hero-unit">
-
-<?php
-      if ($userId) { 
-        $userInfo = $facebook->api('/' . $userId);
-          $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        ?>
-
-        <h3>Your name is <?=$userInfo['name']?>.<h3>
-
-        <?php   
-        echo "<img src=\"" . $profile_pic . "\"/>";
-        ?>
-
-        <small>*This person is amazing.</small><br>
-
-<span class="lead">
-        <?php
-        $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
+$fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
                                'method' => 'fql.query',
@@ -163,6 +129,41 @@ for($i = 0; $i < count($friendNames); $i++)
     }
 }
 
+?>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="lead">
+        A variety of mostly pointless stats about your friends' names.<br>
+        Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
+        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
+        <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
+      </p>
+
+<div class="hero-unit">
+
+<?php
+      if ($userId) { 
+        $userInfo = $facebook->api('/' . $userId);
+          $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
+        ?>
+
+        <h3>Your name is <?=$userInfo['name']?>.<h3>
+
+        <?php   
+        echo "<img src=\"" . $profile_pic . "\"/>";
+        ?>
+
+        <small>*This person is amazing.</small><br>
+
+<span class="lead">
+        <?php
                  echo "Number of friends: ".count($friendNames);
                                                  echo "<br>";
 
