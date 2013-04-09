@@ -12,49 +12,9 @@
     
     <style type="text/css">
 
-      /* Sticky footer styles
-      -------------------------------------------------- */
-
-      html,
       body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
-      }
-
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: 60px;
-      }
-      #footer {
-        background-color: #f5f5f5;
-      }
-
-      /* Lastly, apply responsive CSS fixes as necessary */
-      @media (max-width: 767px) {
-        #footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-
-      /* Custom page CSS
-      -------------------------------------------------- */
-      /* Not required for template or sticky footer method. */
-
-      #wrap > .container {
         padding-top: 60px;
+        /* The html and body elements cannot have any padding or margin. */
       }
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -112,7 +72,6 @@ $facebook = new Facebook(array(
 
 $userId = $facebook->getUser();
 ?>
-<div id="wrap">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -126,7 +85,7 @@ $userId = $facebook->getUser();
         A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP and some JavaScript, with vague hints of Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        Source available. <a class="btn btn-primary" href="SOURCE">Github</a><br>
+         <a class="btn btn-primary" href="SOURCE">Source available.</a><br>
       </p>
 <div class="hero-unit">
 <?php
@@ -206,13 +165,6 @@ $userId = $facebook->getUser();
                   <?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
-
-    <div id="footer">
-      <div class="container">
-        <p class="muted credit">Created by Howard Chung, who probably has something more productive to do right now.</p>
-      </div>
-    </div>
-  </div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
