@@ -46,31 +46,10 @@
               xfbml      : true  // parse XFBML
             });
 
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-        // User logged into FB and authorized
-        document.getElementById('fb-logout').style.display = 'block';
-    } else if (response.status === 'not_authorized') {
-        // User logged into FB but not authorized
-        document.getElementById('fb-login').style.display = 'block';
-    } else {
-        // User not logged into FB
-        document.getElementById('fb-login').style.display = 'block';
-    }
-});
-
 FB.Event.subscribe('auth.login', function(response){
 window.location.reload();
 });
 };
-
-    function logout() {
-    FB.logout(function(response) {
-        console.log('User is now logged out');
-        window.location.reload();
-
-    });
-}
 
   // Load the SDK Asynchronously
   (function(d){
@@ -239,7 +218,6 @@ for($i = 0; $i < count($friendNames); $i++)
 <?php } ?>
 
 <div class="fb-login-button" id "fb-login" data-show-faces="true" data-width="200" data-max-rows="1"></div>
-<button class="btn btn-danger" id="fb-logout" onclick="logout()">Log out</button>
 
 </div> <!-- hero unit -->
     </div> <!-- /container -->
