@@ -120,7 +120,7 @@ $userId = $facebook->getUser();
                           $numMale=0;
                           $numFemale=0;
 
-                          foreach ($response as &$friend) {
+                          foreach ($response as $friend) {
                                 
                                 if ($friend['sex']=='male'){
                                   $numMale=$numMale+1;
@@ -190,7 +190,7 @@ for($i = 0; $i < count($friendNames); $i++)
                           //last friend alpha
                   echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
                   echo "That's these people: <br>";
-                  foreach ($palindromes as &$id => $name) {
+                  foreach ($palindromes as $id => $name) {
                   $profile_pic =  "http://graph.facebook.com/".$id."/picture";
                   echo "<a href=\"http://facebook.com/".$id."\">";
                   echo "<img src=\"" . $profile_pic . "\"/>";
