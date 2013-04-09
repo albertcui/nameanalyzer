@@ -78,11 +78,12 @@ function generateIntroText(){
 
  FB.api('fql', { q: 'SELECT uid, first_name, last_name, sex, mutual_friend_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())' }, function (response)
 {
-console.log(response);
+
 var htmlString="";
 var el = document.getElementById('stats');
 for(var i = 0; i<response.length; i++){
 htmlString=htmlString+response[i].name+"<br>";
+console.log(response[i].name);
 }
   console.log(htmlString);
   el.innerHTML = htmlString;
