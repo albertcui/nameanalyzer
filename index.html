@@ -147,8 +147,6 @@ for(var i = 0; i < fullNames.length; i++){
     }
 }
 
-fullNames.sort()
-
 htmlString+="Number of friends: "+fullNames.length+"<br>";
 htmlString+="Number male: "+numMale+"<br>";
 htmlString+="Number female: "+numFemale+"<br>";
@@ -162,11 +160,14 @@ htmlString+="Most common last name: "+mode(lastNames)[0]+" ("+mode(lastNames)[1]
                           //least number of friends
                           //most mutual friends
                           //least mutual friends
+                          
+//sort last, it breaks other variables        
+fullNames.sort()
 htmlString+="First friend alphabetically: "+fullNames[0]+"<br>";
 htmlString+="Last friend alphabetically: "+fullNames[fullNames.length-1]+"<br>";
 
-htmlString+="<br><p>";
-htmlString+="You've got "+palindromes.length+" friends with palindromic first names.<br>";
+htmlString+="<br>";
+htmlString+="<p>You've got "+palindromes.length+" friends with palindromic first names.<br>";
 htmlString+="You should introduce them to Howard:</p>";
 
                   for (var i=0;i<palindromes.length;i++){
