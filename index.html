@@ -151,8 +151,8 @@ htmlString+="Longest name: "+fullNames[longest]+" ("+fullNames[longest].length+"
 htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].length+")<br>";
 htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mostVowels])+")<br>";
 htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
-htmlString+="Most common first name: "+mode(firstNames)+" ("+firstNames.count(mode(firstNames))+")<br>";
-htmlString+="Most common last name: "+mode(lastNames)+" ("+lastNames.count(mode(lastNames))+")<br>";
+htmlString+="Most common first name: "+mode(firstNames)[0]+" ("+mode(firstNames)[1]+")<br>";
+htmlString+="Most common last name: "+mode(lastNames)[0]+" ("+mode(firstNames)[1]+")<br>";
 
                           //most common first name
                           //most common last name
@@ -212,7 +212,8 @@ function mode(array)
         maxCount = modeMap[el];
       }
     }
-    return maxEl;
+
+    return new Array(maxEl, modeMap[maxEl]);
 }
 
   // Load the SDK Asynchronously
