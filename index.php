@@ -46,37 +46,18 @@
               xfbml      : true  // parse XFBML
             });
 
-// Additional init code here
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-        // User logged into FB and authorized
-        document.getElementById('fb-logout').style.display = 'block';
-    } else if (response.status === 'not_authorized') {
-        // User logged into FB but not authorized
-        login();
-    } else {
-        // User not logged into FB
-        login();
-        document.getElementById('fb-logout').style.display = 'block';
-    }
-});
+FB.Event.subscribe('auth.login', function(response){
+window.location.reload();
+)};
 };
 
-  function login() {
-    FB.login(function(response) {
-        if (response.authResponse) {
-            // connected
-            window.location.reload();
-
-        } else {
-            // cancelled
-        }
-    });
-  }
+ 
 
     function logout() {
     FB.logout(function(response) {
         console.log('User is now logged out');
+        window.location.reload();
+
     });
 }
 
