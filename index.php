@@ -94,8 +94,11 @@ $userId = $facebook->getUser();
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        echo "</span><img src=\"" . $profile_pic . "\"/> <span class='arrow' rel='270'> What an amazing person!<br>";
+        echo "<img src=\"" . $profile_pic . "\"/>";
+        echo "<span class='arrow' rel='270'></span>";
+        echo "What an amazing person!<br>";
         ?>
+        
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
 
                                 
@@ -162,7 +165,7 @@ $userId = $facebook->getUser();
                   else { ?>
         <h1>Log in to Facebook to begin:</h1>
       <fb:login-button size="xlarge"></fb:login-button>
-                  <?php } ?>
+      <?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
     <!-- Le javascript
