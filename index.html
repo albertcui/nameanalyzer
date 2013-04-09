@@ -110,8 +110,9 @@ lastNames.push(lastName);
 
 //lowercase the first name for palindrome check
 firstName=firstName.toLowerCase();
+revFirstName=firstName.split(”).reverse().join(”);
 
-                                if (firstName.split(”).reverse().join(”)==firstName){
+                                if (revFirstName==firstName){
                                   palindromes.push(fullName);
                                   palinIds.push(friendId);
                                 }
@@ -137,10 +138,6 @@ el.innerHTML = htmlString;
 
 });
 }
-
-function reverse(string) {
-    return ;
-};
 
   // Load the SDK Asynchronously
   (function(d){
