@@ -113,7 +113,6 @@ $userId = $facebook->getUser();
                                'method' => 'fql.query',
                                'query' =>$fql,
                           ));
-                          $index=0;
                           $friendNames=array();
                           $firstNames=array();
                           $lastNames=array();
@@ -138,23 +137,14 @@ $userId = $facebook->getUser();
                                 $firstName=$friend['first_name'];
                                 $firstNames[]=$firstName;
 
+                                $lastNames[]=$friend['last_name'];
 
                                 //lowercase the first name for palindrome check
                                 $firstName=strtolower($firstName);
 
                                 if (strrev($firstName)==$firstName){
-                                  $palindromes[]=$friendName;
+                                  $palindromes[$friendId]=$friendName;
                                 }
-
-                                $lastNames[]=$friend['last_name'];
-
-                                $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
-                                $index++;
-/*
-                               echo "<img src=\"" . $profile_pic . "\" />";
-                                echo $friendName;
-                                echo "<br>";
-                                */
 
                  }
 
@@ -200,9 +190,13 @@ for($i = 0; $i < count($friendNames); $i++)
                           //last friend alpha
                   echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
                   echo "That's these people: <br>";
-                  foreach ($palindromes as &$name) {
+                  foreach ($palindromes as &$id => $name) {
+                  $profile_pic =  "http://graph.facebook.com/".$id."/picture";
+                  echo "<a href=\"http://facebook.com/".$id."\">";
+                  echo "<img src=\"" . $profile_pic . "\"/>";
                     echo $name;
-                    echo $br;
+                    echo "</a>";
+                    echo "<br>";
                     //provide pic
                     //provide link to fb
                   }
