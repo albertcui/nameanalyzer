@@ -78,10 +78,11 @@ $userId = $facebook->getUser();
       </div>
     </div>
 
-    <div class="container">
+    <div class="lead">
       <p>A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with JavaScript FB login, with a light covering of Bootstrap for the frontend.<br>
         Source available.<br>
+        Some of your friends won't show up here because they're lame and aren't opted into Facebook's API. Boo.<br>
       </p>
 
 <?php
@@ -92,9 +93,8 @@ $userId = $facebook->getUser();
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
         echo "<img src=\"" . $profile_pic . "\"/>";
                       echo $userInfo['name'];
-                                echo "<br>";
 
-        echo "Your friends:<br>";
+                                echo "<br>";
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
@@ -128,8 +128,14 @@ $userId = $facebook->getUser();
                                 */
                  }
                  echo "Number of friends: ".count($friendNames);
+                                                 echo "<br>";
+
                  echo "Number male: ".$numMale;
+                                                 echo "<br>";
+
                  echo "Number female: ".$numFemale;
+                                                 echo "<br>";
+
                           //number male
                           //number female
                           //longest name
