@@ -72,6 +72,7 @@ FB.getLoginStatus(function(response) {
             // cancelled
         }
     });
+  }
 
     function logout() {
     FB.logout(function(response) {
