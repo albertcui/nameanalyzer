@@ -168,8 +168,8 @@ for($i = 0; $i < count($friendNames); $i++)
                  echo "Number female: ".$numFemale;
                                                  echo "<br>";
 
-                echo "Longest name: ".$array[$longest].$numCharsLong;
-                echo "Shortest name: "$array[$shortest].$numCharsShort;
+                echo "Longest name: ".$array[$longest]." (".$numCharsLong;.")";
+                echo "Shortest name: "$array[$shortest]." (".$numCharsShort.")";
                           //most vowels
                           //least vowels
                           //palindromes
