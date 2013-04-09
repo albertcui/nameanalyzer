@@ -62,10 +62,13 @@ $userId = $facebook->getUser();
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
  document.getElementById('data').style.display = 'block';
+document.getElementById('login').style.display = 'none';
+
 
   }
   } else {
-    document.getElementById('login').style.display = 'none';
+     document.getElementById('data').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
   }
  });
 
