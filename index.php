@@ -117,6 +117,7 @@ $userId = $facebook->getUser();
                           $friendNames=array();
                           $firstNames=array();
                           $lastNames=array();
+                          $palindromes=array();
                           $numMale=0;
                           $numFemale=0;
 
@@ -133,6 +134,16 @@ $userId = $facebook->getUser();
                                 $friendId=$friend['uid'];
                                 $friendName=$friend['name'];
                                 $friendNames[]=$friendName;
+
+                                $firstName=$friend['first_name'];
+                                $firstNames[]=$firstName;
+                     
+                                if strrev($friend['first_name']){
+                                  $palindromes[]=$friendName;
+                                }
+
+                                $lastNames[]=$friend['last_name'];
+
                                 $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
                                 $index++;
 /*
@@ -183,8 +194,15 @@ for($i = 0; $i < count($friendNames); $i++)
                           //least wall posts
                           //first friend alpha
                           //last friend alpha
-                          //palindromes
-                  echo "*People with palindromic names are awesome, so you should introduce them to Howard.";
+                  echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
+                  echo "That's these people: <br>";
+                  foreach ($palindromes as &$name) {
+                    echo $name;
+                    echo $br;
+                    //provide pic
+                    //provide link to fb
+                  }
+
                  ?>
                                 </span>
 <?php
