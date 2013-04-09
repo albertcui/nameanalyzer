@@ -78,7 +78,8 @@ $userId = $facebook->getUser();
       </div>
     </div>
 
-    <div class="lead">
+    <div class="container">
+      <div class="lead">
       <p>A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with JavaScript FB login, with a light covering of Bootstrap for the frontend.<br>
         Source available.<br>
@@ -159,7 +160,7 @@ $userId = $facebook->getUser();
       <fb:login-button size="xlarge"></fb:login-button>
                   <?php } ?>
 
-
+    </div>
     </div> <!-- /container -->
 
     <!-- Le javascript
