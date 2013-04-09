@@ -81,13 +81,50 @@ function generateIntroText(){
 
 var htmlString="";
 var el = document.getElementById('stats');
-console.log(response.data.length);
+
+var fullNames=new Array();
+var firstNames=new Array();
+var lastNames=new Array();
+var palindromes=new Array();
+var palinIds=new Array();
+var numMale=0;
+var numFemale=0;
+
 for(var i = 0; i<response.data.length; i++){
+var friendInfo=response.data[i];
+if (friendInfo].sex=='male'){
+        numMale++;
+
+                                }
+                                else{
+                                  numFemale++;
+                                }
+
+friendId=friendInfo.uid;
+fullName=friendInfo.name;
+fullNames.push(fullName);
+firstName=friendInfo.first_name;
+firstNames.push(firstName);         
+lastName=friendInfo.last_name;
+lastNames.push(lastName);               
+
+//lowercase the first name for palindrome check
+firstName=firstName.toLowerCase();
+
+                                if (reverse(firstName==firstName){
+                                  palindromes.push(fullName);
+                                  palinIds.push(friendId);
+                                }
+
 htmlString=htmlString+response.data[i].name+"<br>";
 }
   el.innerHTML = htmlString;
 });
 }
+
+function reverse(string) {
+    return string.split(”).reverse().join(”);
+};
 
   // Load the SDK Asynchronously
   (function(d){
@@ -100,40 +137,6 @@ htmlString=htmlString+response.data[i].name+"<br>";
 
 
 /*
-                          $friendNames=array();
-                          $firstNames=array();
-                          $lastNames=array();
-                          $palindromes=array();
-                          $numMale=0;
-                          $numFemale=0;
-
-                          foreach ($response as $friend) {
-                                
-                                if ($friend['sex']=='male'){
-                                  $numMale=$numMale+1;
-
-                                }
-                                else{
-                                  $numFemale=$numFemale+1;
-                                }
-
-                                $friendId=$friend['uid'];
-                                $friendName=$friend['name'];
-                                $friendNames[]=$friendName;
-
-                                $firstName=$friend['first_name'];
-                                $firstNames[]=$firstName;
-
-                                $lastNames[]=$friend['last_name'];
-
-                                //lowercase the first name for palindrome check
-                                $firstName=strtolower($firstName);
-
-                                if (strrev($firstName)==$firstName){
-                                  $palindromes[$friendId]=$friendName;
-                                }
-                 }
-
                  $longest = 0;
                  $shortest = 0;
 
