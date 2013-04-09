@@ -98,7 +98,7 @@ $userId = $facebook->getUser();
                                'method' => 'fql.query',
                                'query' =>$fql,
                           ));
-                          $friendNames=[];
+                          $friendNames=array();
                           //total number friends
                           //number male
                           //number female
