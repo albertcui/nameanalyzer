@@ -189,7 +189,7 @@ for($i = 0; $i < count($friendNames); $i++)
                           //least wall posts
                           //first friend alpha
                           //last friend alpha
-                  }
+
 
                  ?>
                                 </span>
@@ -215,6 +215,7 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo $name;
                     echo "</a>";
                     echo "<br>";
+                    }
 ?>
     </div> <!-- /container -->
     <!-- Le javascript
