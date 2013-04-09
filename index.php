@@ -30,12 +30,50 @@
   </head>
 
   <body>
+<div id="fb-root"></div>
+      <script>
+
+       window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '159049770927427', // App ID
+              status     : true, // check login status
+              cookie     : true, // enable cookies to allow the server to access the session
+              xfbml      : true  // parse XFBML
+            });
+
+
+             FB.Event.subscribe('auth.login',function(response){
+                    window.location.reload()
+              });
+
+          };
+
+          // Load the SDK Asynchronously
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+      </script>
+                  <?php 
+
+//uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
+require 'facebookphp/src/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '159049770927427',
+  'secret' => '575e89c0f7ce4c7ddf7636becd609842',
+));
+
+$userId = $facebook->getUser();
+?>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
@@ -44,7 +82,6 @@
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -55,6 +92,22 @@
 
       <h1>Bootstrap starter template</h1>
       <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+<?php
+      if ($userId) { 
+              $userInfo = $facebook->api('/' . $userId);
+              echo $userInfo['name'];
+                //create the url
+                $profile_pic =  "http://graph.facebook.com/".$userId."/picture?height=200&width=200";
+        echo "<br><br><img src=\"" . $profile_pic . "\"/>";
+
+                 } 
+
+                  else { ?>
+        <h1>Log in to Facebook to begin:</h1>
+      <fb:login-button></fb:login-button>
+                  <?php } ?>
+
 
     </div> <!-- /container -->
 
