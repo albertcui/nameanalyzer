@@ -102,15 +102,24 @@ $userId = $facebook->getUser();
                                'query' =>$fql,
                           ));
                           $friendNames=array();
+                          $firstNames=array();
+                          $lastNames=array();
+                          $numMale=0;
+                          $numFemale=0;
 
-
-                              foreach ($response as &$friend) {
+                          foreach ($response as &$friend) {
                                 
+                                if ($friend['sex']=='male'){
+                                  $numMale=$numMale+1;
+
+                                }
+                                else{
+                                  $numFemale=$numFemale+1;
+                                }
                                 $friendId=$friend['uid'];
                                 $friendName=$friend['name'];
                                 $friendNames[]=$friendName;
-
-                          $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
+                                $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
 
 /*
                                echo "<img src=\"" . $profile_pic . "\" />";
@@ -119,6 +128,8 @@ $userId = $facebook->getUser();
                                 */
                  }
                  echo "Number of friends: ".count($friendNames);
+                 echo "Number male: ".$numMale;
+                 echo "Number female: ".$numFemale;
                           //number male
                           //number female
                           //longest name
