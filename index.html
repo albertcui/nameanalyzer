@@ -133,27 +133,8 @@ for(var i = 0; i < fullNames.length; i++){
 htmlString+="Number of friends: "+fullNames.length+"<br>";
 htmlString+="Number male: "+numMale+"<br>";
 htmlString+="Number female: "+numFemale+"<br>";
-
-el.innerHTML = htmlString;
-
-});
-}
-
-  // Load the SDK Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-
-/*
-
-                echo "Longest name: ".$fullNames[$longest]." (".strlen($fullNames[$longest]).")";
-                echo "<br>";
-                echo "Shortest name: ".$fullNames[$shortest]." (".strlen($fullNames[$shortest]).")";
-                  echo "<br>";
+htmlString+="Longest name: "+fullNames[longest]+" ("+fullNames[longest].length+")<br>";
+htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].length+")<br>";
 
                           //most vowels
                           //least vowels
@@ -164,7 +145,7 @@ el.innerHTML = htmlString;
                           //highest mutual friend count
                           //first friend alpha
                           //last friend alpha
-
+/*
                   echo "<br>";
                   echo "<p class='text-success'>";
                   echo "You've got ".count($palindromes)." friends with palindromic first names.<br>";
@@ -181,6 +162,20 @@ el.innerHTML = htmlString;
                     echo "<br>";
                     }             
 */
+el.innerHTML = htmlString;
+
+});
+}
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
 </script>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
