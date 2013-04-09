@@ -61,7 +61,7 @@ FB.getLoginStatus(function(response) {
 
 FB.Event.subscribe('auth.login', function(response){
 window.location.reload();
-};
+});
 };
 
     function logout() {
