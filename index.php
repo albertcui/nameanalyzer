@@ -189,7 +189,19 @@ for($i = 0; $i < count($friendNames); $i++)
                           //least wall posts
                           //first friend alpha
                           //last friend alpha
+                  }
 
+                 ?>
+                                </span>
+<?php
+               } 
+        else { ?>
+        <h2>Log in to Facebook to begin:</h2>
+      <fb:login-button size="large"></fb:login-button>
+      <?php } ?>
+
+</div> <!-- hero unit -->
+<?php
                   echo "<p class='text-success'>";
                   echo "You've got ".count($palindromes)." friends with palindromic first names.<br>";
                   echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
@@ -203,18 +215,7 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo $name;
                     echo "</a>";
                     echo "<br>";
-                  }
-
-                 ?>
-                                </span>
-<?php
-               } 
-        else { ?>
-        <h2>Log in to Facebook to begin:</h2>
-      <fb:login-button size="large"></fb:login-button>
-      <?php } ?>
-
-</div> <!-- hero unit -->
+?>
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
