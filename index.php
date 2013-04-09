@@ -147,7 +147,7 @@ for($i = 0; $i < count($friendNames); $i++)
         A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with vague hints of JavaScript.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
+        <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
       </p>
 
 <div class="hero-unit">
