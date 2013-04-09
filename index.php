@@ -79,8 +79,8 @@ $userId = $facebook->getUser();
     </div>
 
     <div class="container">
-      <div class="lead">
-      <p>A variety of mostly pointless stats about your friends' names.<br>
+      <p class="lead">
+        A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with JavaScript FB login, with vague hints of Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         Source available.<br>
@@ -94,7 +94,7 @@ $userId = $facebook->getUser();
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
         echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
         ?>
-        You are <?=$userInfo['name']?>, from <?=$userInfo['hometown']?>.  In case nobody's told you today, you're awesome. :)<br>
+         <p class="lead">You're <?=$userInfo['name']?>.  In case nobody's told you today, you're awesome. :)<p>
 
                                 
                                 <?php
@@ -162,9 +162,13 @@ $userId = $facebook->getUser();
       <fb:login-button size="xlarge"></fb:login-button>
                   <?php } ?>
 
-    </div>
     </div> <!-- /container -->
 
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Created by Howard Chung, who probably has some more productive to do.</p>
+      </div>
+    </div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
