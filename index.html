@@ -70,7 +70,12 @@ function generateIntroText(){
   var name=response.name;
   var profile_pic = "http://graph.facebook.com/"+response.id+"/picture?type=large";
   var el = document.getElementById('intro');
-  el.innerHTML = '<h3>Your name is '+name+'.<h3><img src="'+profile_pic+'"></img><small> *This person is amazing.</small><br>';
+  var htmlString="";
+  htmlString+='<h3>Your name is '+name+'.<h3>';
+  htmlString+='<img src="'+profile_pic+'"></img>';
+  htmlString+='<small><-This person is amazing.</small><br>';
+  el.innerHTML = htmlString;
+
 });
 }
 
@@ -189,7 +194,7 @@ el.innerHTML = htmlString;
     <div class="container">
       <p class="lead">
         A variety of mostly pointless stats about your friends' names.<br>
-        Written in JavaScript, with some CSS and jQuery.  (formerly PHP, but PHP sucks sometimes)<br>
+        Written in JavaScript, with some CSS and jQuery.  (formerly PHP, but PHP kind of sucks.)<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
       </p>
