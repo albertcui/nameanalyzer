@@ -82,7 +82,7 @@ console.log(response);
 var htmlString="";
 var el = document.getElementById('stats');
 for(var i = 0; i<response.length; i++){
-htmlString=htmlString+response[i].name+"<br>";
+htmlString=htmlString+response.data[i].name+"<br>";
 }
   console.log(htmlString);
   el.innerHTML = htmlString;
