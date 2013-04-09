@@ -143,11 +143,11 @@ $userId = $facebook->getUser();
 
 for($i = 0; $i < count($friendNames); $i++)
 {
-    if(strlen($array[$i]) > strlen($array[$longest]))
+    if(strlen($friendNames[$i]) > strlen($friendNames[$longest]))
     {
       $longest = $i;
     }
-    if(strlen($array[$i]) < strlen($array[$shortest]))
+    if(strlen($friendNames[$i]) < strlen($friendNames[$shortest]))
     {
       $shortest = $i;
     }
