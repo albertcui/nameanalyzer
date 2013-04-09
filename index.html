@@ -112,7 +112,10 @@ fullNames.push(fullName);
 firstName=friendInfo.first_name;
 firstNames.push(firstName);         
 lastName=friendInfo.last_name;
-lastNames.push(lastName);               
+lastNames.push(lastName);  
+numFriends=friendInfo.friend_count;
+mutFriends=friendInfo.mutual_friend_count;
+
 
 //lowercase the first name for palindrome check
 firstName=firstName.toLowerCase();
@@ -144,6 +147,8 @@ for(var i = 0; i < fullNames.length; i++){
     }
 }
 
+fullNames.sort()
+
 htmlString+="Number of friends: "+fullNames.length+"<br>";
 htmlString+="Number male: "+numMale+"<br>";
 htmlString+="Number female: "+numFemale+"<br>";
@@ -153,13 +158,12 @@ htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mos
 htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
 htmlString+="Most common first name: "+mode(firstNames)[0]+" ("+mode(firstNames)[1]+")<br>";
 htmlString+="Most common last name: "+mode(lastNames)[0]+" ("+mode(lastNames)[1]+")<br>";
-
                           //most number of friends
                           //least number of friends
                           //most mutual friends
                           //least mutual friends
-                          //first friend alpha
-                          //last friend alpha
+htmlString+="First friend alphabetically: "+fullNames[0]+"<br>";
+htmlString+="Last friend alphabetically: "+fullNames[fullNames.length-1]+"<br>";
 
 htmlString+="<br><p>";
 htmlString+="You've got "+palindromes.length+" friends with palindromic first names.<br>";
