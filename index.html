@@ -82,9 +82,8 @@ function generateIntroText(){
 var htmlString="";
 var el = document.getElementById('stats');
 console.log(response.data.length);
-for(var i = 0; i<response.length; i++){
-htmlString=htmlString+response[i].name+"<br>";
-console.log(response[i].name);
+for(var i = 0; i<response.data.length; i++){
+htmlString=htmlString+response.data[i].name+"<br>";
 }
   el.innerHTML = htmlString;
 });
