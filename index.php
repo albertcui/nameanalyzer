@@ -50,7 +50,6 @@
 FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         // User logged into FB and authorized
-        testAPI();
         document.getElementById('fb-logout').style.display = 'block';
     } else if (response.status === 'not_authorized') {
         // User logged into FB but not authorized
@@ -78,7 +77,6 @@ FB.getLoginStatus(function(response) {
     FB.logout(function(response) {
         console.log('User is now logged out');
     });
-}
 }
 
   // Load the SDK Asynchronously
@@ -248,7 +246,7 @@ for($i = 0; $i < count($friendNames); $i++)
                } 
         else { ?>
         <h2>Log in to Facebook to begin:</h2>
-      <fb:login-button size="large"></fb:login-button>
+      <fb:login-button size="large" data-show-faces="true"></fb:login-button>
       <?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
