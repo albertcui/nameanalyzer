@@ -85,7 +85,7 @@ $userId = $facebook->getUser();
         A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-         <a class="btn btn-primary" href="SOURCE">Source available.</a><br>
+        Source available.<a class="btn btn-primary" href="SOURCE">Github</a><br>
       </p>
 <div class="hero-unit">
 <?php
@@ -94,7 +94,7 @@ $userId = $facebook->getUser();
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        echo "<span class='arrow' rel='270'></span><img src=\"" . $profile_pic . "\"/> What an amazing person!<br>";
+        echo "</span><img src=\"" . $profile_pic . "\"/> <span class='arrow' rel='270'> What an amazing person!<br>";
         ?>
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
 
@@ -181,6 +181,8 @@ $userId = $facebook->getUser();
     <script src="../assets/js/bootstrap-collapse.js"></script>
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-arrows.js"></script>
 
   </body>
 </html>
