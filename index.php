@@ -96,13 +96,16 @@ $userId = $facebook->getUser();
         $userInfo = $facebook->api('/' . $userId);
           $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         ?>
+
+        <span class="text-center">
         <h3>Your name is <?=$userInfo['name']?>.<h3>
-<p class="text-center">
+
         <?php   
         echo "<img src=\"" . $profile_pic . "\"/>";
         ?>
-<p class="muted">*This person is amazing.</p>
-</p>
+
+        <p class="muted">*This person is amazing.</p>
+        </span>
 
         <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
