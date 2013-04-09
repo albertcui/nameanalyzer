@@ -68,10 +68,11 @@ function generateIntroText(){
   FB.api('/me', function(response) {
   var name=response.name;
   var profile_pic = "http://graph.facebook.com/"+response.id+"/picture?type=large";
+   var el = document.getElementById('intro');
+  el.innerHTML = '<h3>Your name is '+name+'.<h3><img src="'+profile_pic+'"></img><small>*This person is amazing.</sma
 });
 
-  var el = document.getElementById('intro');
-  el.innerHTML = '<h3>Your name is '+name+'.<h3><img src="'+profile_pic+'"></img><small>*This person is amazing.</small><br>';
+ ll><br>';
 }
 
   // Load the SDK Asynchronously
