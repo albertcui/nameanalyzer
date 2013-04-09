@@ -9,7 +9,7 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-        <link href='../assets/css/bootstrap.min.css' rel='stylesheet' type='text/css' media='screen' />
+    <link href='../assets/css/bootstrap.min.css' rel='stylesheet' type='text/css' media='screen' />
     <link href='../assets/css/bootstrap-arrows.css' rel='stylesheet' type='text/css' media='screen' />
     <style type="text/css">
 
