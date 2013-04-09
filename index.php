@@ -180,7 +180,7 @@ for($i = 0; $i < count($friendNames); $i++)
                           //first friend alpha
                           //last friend alpha
                           //palindromes
-                  echo "People with palindromic names are awesome, so you should introduce them to Howard."
+                  echo "People with palindromic names are awesome, so you should introduce them to Howard.";
                  } 
 
         else { ?>
