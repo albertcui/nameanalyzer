@@ -49,6 +49,18 @@
 
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
+
+//generate the intro text
+  FB.api('/me', function(response) {
+  var id=response.id;
+  var name=response.name;
+  var img_link = "http://graph.facebook.com/"+response.id+"/picture?type=large";
+});
+  var el = document.getElementById('intro');
+  el.html = '<h3>Your name is USERNAME HERE.<h3>
+        <img src="'+img_link+'">
+        <small>*This person is amazing.</small><br>';
+
  document.getElementById('data').style.display = 'block';
 document.getElementById('login').style.display = 'none';
   }
@@ -92,26 +104,14 @@ window.location.reload();
 <div class="hero-unit">
 <div id="data">
 
-  <script>
-  FB.api('/me', function(response) {
-  var id=response.id;
-  var name=response.name;
-  var img_link = "http://graph.facebook.com/"+response.id+"/picture?type=large";
-});
-  var el = document.getElementById('intro');
-  el.html = '<h3>Your name is USERNAME HERE.<h3>
-        <img src="'+img_link+'">
-        <small>*This person is amazing.</small><br>';
-</script>
-
 <div id="intro">
 </div>
 
 <div class="lead">
 </div>
         
-<?php
-/*
+<!--replace with JS
+
  FB.api('fql', { q: 'query here' }, function (response)
 {
  //Logic here
@@ -212,9 +212,8 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo $name;
                     echo "</a>";
                     echo "<br>";
-                    }
-                    */
-                    ?>
+                    }             
+-->
 
 </div>
 
