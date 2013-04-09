@@ -49,21 +49,12 @@
         }
       }
 
-
-
       /* Custom page CSS
       -------------------------------------------------- */
       /* Not required for template or sticky footer method. */
 
       #wrap > .container {
         padding-top: 60px;
-      }
-      .container .credit {
-        margin: 20px 0;
-      }
-
-      code {
-        font-size: 80%;
       }
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
