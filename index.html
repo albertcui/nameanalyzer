@@ -92,7 +92,7 @@ var numFemale=0;
 
 for(var i = 0; i<response.data.length; i++){
 var friendInfo=response.data[i];
-if (friendInfo].sex=='male'){
+if (friendInfo.sex=='male'){
         numMale++;
 
                                 }
@@ -116,6 +116,18 @@ firstName=firstName.toLowerCase();
                                   palinIds.push(friendId);
                                 }
 
+  var longest = 0;
+  var shortest = 0;
+
+for(var i = 0; i < friendNames.length; i++){
+    if(friendNames[i].length > friendNames[longest].length){
+      longest = i;
+    }
+    if(friendNames[i].length < friendNames[shortest].length){
+      shortest = i;
+    }
+}
+
 htmlString=htmlString+response.data[i].name+"<br>";
 }
   el.innerHTML = htmlString;
@@ -135,29 +147,11 @@ function reverse(string) {
      ref.parentNode.insertBefore(js, ref);
    }(document));
 
-
 /*
-                 $longest = 0;
-                 $shortest = 0;
 
-for($i = 0; $i < count($friendNames); $i++)
-{
-    if(strlen($friendNames[$i]) > strlen($friendNames[$longest]))
-    {
-      $longest = $i;
-    }
-    if(strlen($friendNames[$i]) < strlen($friendNames[$shortest]))
-    {
-      $shortest = $i;
-    }
-}
-
-        $userInfo = $facebook->api('/' . $userId);
-          $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-
-                 echo "Number of friends: ".count($friendNames);
+          echo "Number of friends: ".count($friendNames);
           echo "<br>";
-
+          
                  echo "Number male: ".$numMale;
                   echo "<br>";
 
