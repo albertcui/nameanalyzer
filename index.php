@@ -168,6 +168,9 @@ for($i = 0; $i < count($friendNames); $i++)
       <div class="navbar-inner">
         <div class="container">
           <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
+            <div style="display: inline-block;" class="pull-right">
+                <button id="fb-logout" onclick="logout()">Log out</button>
+            </div>
                 </div>
         </div>
     </div>
@@ -248,8 +251,6 @@ for($i = 0; $i < count($friendNames); $i++)
       <fb:login-button size="large"></fb:login-button>
       <?php } ?>
 </div> <!-- hero unit -->
-     <button id="fb-logout" onclick="logout()">Log out</button>
-
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
