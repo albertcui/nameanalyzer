@@ -9,7 +9,8 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    
+        <link href='../assets/css/bootstrap.min.css' rel='stylesheet' type='text/css' media='screen' />
+    <link href='../assets/css/bootstrap-arrows.css' rel='stylesheet' type='text/css' media='screen' />
     <style type="text/css">
 
       body {
@@ -184,6 +185,7 @@ $userId = $facebook->getUser();
     <script src="../assets/js/bootstrap-collapse.js"></script>
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap-arrows.js"></script>
 
