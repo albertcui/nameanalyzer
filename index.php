@@ -170,10 +170,11 @@ for($i = 0; $i < count($friendNames); $i++)
 
                 echo "Longest name: ".$array[$longest]." (".$numCharsLong.")";
                 echo "<br>";
-                echo "Shortest name: "$array[$shortest]." (".$numCharsShort.")";
+                echo "Shortest name: ".$array[$shortest]." (".$numCharsShort.")";
+                  echo "<br>";
+
                           //most vowels
                           //least vowels
-                          //palindromes
                           //most common first name
                           //most common last name
                           //most number of friends
@@ -183,9 +184,10 @@ for($i = 0; $i < count($friendNames); $i++)
                           //least wall posts
                           //first friend alpha
                           //last friend alpha
+                          //palindromes
                  } 
 
-                  else { ?>
+        else { ?>
         <h1>Log in to Facebook to begin:</h1>
       <fb:login-button size="xlarge"></fb:login-button>
       <?php } ?>
