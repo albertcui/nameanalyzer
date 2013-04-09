@@ -96,13 +96,15 @@ $userId = $facebook->getUser();
         $userInfo = $facebook->api('/' . $userId);
           $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         ?>
-        <p class="lead">Your name is <?=$userInfo['name']?>.<p>
+        <h1>Your name is <?=$userInfo['name']?>.<h1>
+
         <?php   
         echo "<img src=\"" . $profile_pic . "\"/>";
         ?>
 
 <p class="text-info">*This person is amazing.</p>
 
+<p class="lead">
         <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
@@ -182,12 +184,14 @@ for($i = 0; $i < count($friendNames); $i++)
                           //last friend alpha
                           //palindromes
                   echo "*People with palindromic names are awesome, so you should introduce them to Howard.";
+                  echo "</p>";
                  } 
 
         else { ?>
         <h2>Log in to Facebook to begin:</h2>
       <fb:login-button size="large"></fb:login-button>
       <?php } ?>
+
 </div> <!-- hero unit -->
     </div> <!-- /container -->
     <!-- Le javascript
