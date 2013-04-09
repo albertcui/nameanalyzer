@@ -96,6 +96,8 @@ var palindromes=new Array();
 var palinIds=new Array();
 var numMale=0;
 var numFemale=0;
+var mostFriends=0;
+var mostMutFriends=0;
 
 for(var i = 0; i<response.data.length; i++){
 var friendInfo=response.data[i];
@@ -112,10 +114,17 @@ fullNames.push(fullName);
 firstName=friendInfo.first_name;
 firstNames.push(firstName);         
 lastName=friendInfo.last_name;
-lastNames.push(lastName);  
-numFriends=friendInfo.friend_count;
-mutFriends=friendInfo.mutual_friend_count;
+lastNames.push(lastName); 
 
+numFriends=friendInfo.friend_count;
+if (numFriends>response.data[mostFriends].friend_count){
+mostFriends=i;
+}
+
+mutFriends=friendInfo.mutual_friend_count;
+if (mutFriends>response.data[mostMutFriends].mutual_friend_count){
+mostMutFriends=i;
+}
 
 //lowercase the first name for palindrome check
 firstName=firstName.toLowerCase();
@@ -156,11 +165,11 @@ htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mos
 htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
 htmlString+="Most common first name: "+mode(firstNames)[0]+" ("+mode(firstNames)[1]+")<br>";
 htmlString+="Most common last name: "+mode(lastNames)[0]+" ("+mode(lastNames)[1]+")<br>";
+htmlString+="Friend with the most friends: "+fullNames[mostFriends]+" ("+response.data[mostFriends].friend_count+")<br>";
+htmlString+="Friend with the most mutual friends: "+fullNames[mostMutFriends]+" ("+response.data[mostMutFriends].mutual_friend_count+")<br>";
                           //most number of friends
-                          //least number of friends
                           //most mutual friends
-                          //least mutual friends
-                          
+
 //sort last, it breaks other variables        
 fullNames.sort()
 htmlString+="First friend alphabetically: "+fullNames[0]+"<br>";
