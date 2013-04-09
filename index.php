@@ -76,7 +76,7 @@ $userId = $facebook->getUser();
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a href="index.php" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
+          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
         </div>
       </div>
     </div>
@@ -96,9 +96,10 @@ $userId = $facebook->getUser();
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         echo "<img src=\"" . $profile_pic . "\"/>";
-        ?>
 
-         <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
+        ?>
+This person is amazing.
+         <p class="lead">Your name is <?=$userInfo['name']?>.<p>
 
                                 
         <?php
@@ -179,6 +180,7 @@ for($i = 0; $i < count($friendNames); $i++)
                           //first friend alpha
                           //last friend alpha
                           //palindromes
+                  echo "People with palindromic names are awesome, so you should introduce them to Howard."
                  } 
 
         else { ?>
