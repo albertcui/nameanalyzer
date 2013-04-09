@@ -1,3 +1,16 @@
+<?php
+
+//uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
+require 'facebookphp/src/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '159049770927427',
+  'secret' => '575e89c0f7ce4c7ddf7636becd609842',
+));
+
+$userId = $facebook->getUser();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +48,7 @@
 
   <body>
 
-    <div id="fb-root"></div>
+<div id="fb-root"></div>
 <script>
   // Additional JS functions here
  window.fbAsyncInit = function() {
@@ -45,6 +58,16 @@
               cookie     : true, // enable cookies to allow the server to access the session
               xfbml      : true  // parse XFBML
             });
+
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+ document.getElementById('data').style.display = 'block';
+
+  }
+  } else {
+    document.getElementById('login').style.display = 'none';
+  }
+ });
 
 FB.Event.subscribe('auth.login', function(response){
 window.location.reload();
@@ -61,18 +84,6 @@ window.location.reload();
    }(document));
 </script>
 
-<?php
-
-//uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
-require 'facebookphp/src/facebook.php';
-
-$facebook = new Facebook(array(
-  'appId'  => '159049770927427',
-  'secret' => '575e89c0f7ce4c7ddf7636becd609842',
-));
-
-$userId = $facebook->getUser();
-?>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -90,10 +101,8 @@ $userId = $facebook->getUser();
       </p>
 
 <div class="hero-unit">
-
+<div id="data">
 <?php
-      if ($userId) {
-
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
@@ -156,7 +165,7 @@ for($i = 0; $i < count($friendNames); $i++)
 
         $userInfo = $facebook->api('/' . $userId);
           $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        ?>
+?>
 
         <h3>Your name is <?=$userInfo['name']?>.<h3>
 
@@ -166,7 +175,7 @@ for($i = 0; $i < count($friendNames); $i++)
 
         <small>*This person is amazing.</small><br>
 
-<span class="lead">
+      <div class="lead">
         <?php
                  echo "Number of friends: ".count($friendNames);
                                                  echo "<br>";
@@ -207,20 +216,18 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo "</a>";
                     echo "<br>";
                     }
+                    ?>
 
+</div>
 
-                 ?>
-                                </span>
-<?php
-               } 
-        else { ?>
+<div id="login">
 <h2>Log in to Facebook to begin.</h2>
-<?php } ?>
-
-<div class="fb-login-button" id "fb-login" data-show-faces="true" data-width="200" data-max-rows="1"></div>
+<div class="fb-login-button" data-show-faces="true"></div>
+</div>
 
 </div> <!-- hero unit -->
     </div> <!-- /container -->
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
