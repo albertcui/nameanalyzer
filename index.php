@@ -239,8 +239,8 @@ for($i = 0; $i < count($friendNames); $i++)
                } 
         else { ?>
         <h2>Log in to Facebook to begin:</h2>
-      <fb:login-button id="fb-login" size="large" data-show-faces="true"></fb:login-button>
-      <?php } ?>
+<div id="fb-login" class="fb-login-button" data-show-faces="true" size="large"></div>      
+<?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
     <!-- Le javascript
