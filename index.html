@@ -12,10 +12,8 @@
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <style type="text/css">
-
       body {
         padding-top: 60px;
-        /* The html and body elements cannot have any padding or margin. */
       }
     </style>
 
@@ -141,6 +139,18 @@ htmlString+="Number female: "+numFemale+"<br>";
 htmlString+="Longest name: "+fullNames[longest]+" ("+fullNames[longest].length+")<br>";
 htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].length+")<br>";
 
+htmlString+="<br><p>";
+htmlString+="You've got "+palindromes.length+" friends with palindromic first names.<br>";
+htmlString+="People with palindromic names are awesome, so you should introduce them to Howard.<br>";
+htmlString+="That's these people:</p>";
+
+                  for (var i=0;i<palindromes.length;i++){
+                  profile_pic =  "http://graph.facebook.com/".palinIds[i]."/picture";
+                  htmlString+='<a href="http://facebook.com/'.palinIds[i].'">';
+                  htmlString+='<img src="'+profile_pic . '"/> ';
+                  htmlString+=palindromes[i];
+                  htmlString+="</a><br>";
+                    }             
                           //most vowels
                           //least vowels
                           //most common first name
@@ -150,23 +160,6 @@ htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].lengt
                           //highest mutual friend count
                           //first friend alpha
                           //last friend alpha
-/*
-                  echo "<br>";
-                  echo "<p class='text-success'>";
-                  echo "You've got ".count($palindromes)." friends with palindromic first names.<br>";
-                  echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
-                  echo "That's these people:";
-                  echo "</p>";
-
-                  foreach ($palindromes as $id => $name) {
-                  $profile_pic =  "http://graph.facebook.com/".$id."/picture";
-                  echo "<a href=\"http://facebook.com/".$id."\">";
-                  echo "<img src=\"" . $profile_pic . "\"/> ";
-                    echo $name;
-                    echo "</a>";
-                    echo "<br>";
-                    }             
-*/
 el.innerHTML = htmlString;
 
 });
