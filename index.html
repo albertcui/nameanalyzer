@@ -78,7 +78,7 @@ function generateIntroText(){
  FB.api('fql', { q: 'SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())' }, function (response)
 {
 var htmlString="";
-for(var i = 0, i<response.length; i++){
+for(var i = 0; i<response.length; i++){
 var el = document.getElementById('intro');
 htmlString=htmlString+response.name;
 }
