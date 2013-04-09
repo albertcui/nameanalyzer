@@ -96,8 +96,6 @@ $userId = $facebook->getUser();
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         echo "<img src=\"" . $profile_pic . "\"/>";
-        echo "<span class='arrow-primary' rel='270'></span>";
-        echo "What an amazing person!<br>";
         ?>
 
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
@@ -110,6 +108,7 @@ $userId = $facebook->getUser();
                                'method' => 'fql.query',
                                'query' =>$fql,
                           ));
+                          $index=0;
                           $friendNames=array();
                           $firstNames=array();
                           $lastNames=array();
@@ -125,17 +124,41 @@ $userId = $facebook->getUser();
                                 else{
                                   $numFemale=$numFemale+1;
                                 }
+
                                 $friendId=$friend['uid'];
                                 $friendName=$friend['name'];
                                 $friendNames[]=$friendName;
                                 $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
-
+                                $index++;
 /*
                                echo "<img src=\"" . $profile_pic . "\" />";
                                 echo $friendName;
                                 echo "<br>";
                                 */
+
                  }
+
+                 $longest = 0;
+                 $shortest = 0;
+                 $numCharsLong;
+                 $numCharsShort;
+for($i = 0; $i < count($friendNames); $i++)
+{
+  if($i > 0)
+  {
+    if(strlen($array[$i]) > strlen($array[$longest]))
+    {
+      $longest = $i;
+      $numCharsLong=strlen($array[$longest];
+    }
+        if(strlen($array[$i]) < strlen($array[$shortest]))
+    {
+      $shortest = $i;
+      $numCharsShort=strlen($array[$shortest];
+    }
+  }
+}
+
                  echo "Number of friends: ".count($friendNames);
                                                  echo "<br>";
 
@@ -145,10 +168,8 @@ $userId = $facebook->getUser();
                  echo "Number female: ".$numFemale;
                                                  echo "<br>";
 
-                          //number male
-                          //number female
-                          //longest name
-                          //shortest name
+                echo "Longest name: ".$array[$longest].$numCharsLong;
+                echo "Shortest name: "$array[$shortest].$numCharsShort;
                           //most vowels
                           //least vowels
                           //palindromes
