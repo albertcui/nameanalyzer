@@ -9,8 +9,8 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href='../assets/css/bootstrap.min.css' rel='stylesheet' type='text/css' media='screen' />
-    <link href='../assets/css/bootstrap-arrows.css' rel='stylesheet' type='text/css' media='screen' />
+    <link href='../assets/css/bootstrap.min.css' rel='stylesheet' type='text/css' media='screen' >
+    <link href='../assets/css/bootstrap-arrows.css' rel='stylesheet' type='text/css' media='screen' >
     <style type="text/css">
 
       body {
@@ -96,7 +96,7 @@ $userId = $facebook->getUser();
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         echo "<img src=\"" . $profile_pic . "\"/>";
-        echo "<span class='arrow' rel='270'></span>";
+        echo "<span class='arrow-primary' rel='270'></span>";
         echo "What an amazing person!<br>";
         ?>
 
