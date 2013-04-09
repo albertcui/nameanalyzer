@@ -81,7 +81,7 @@ function generateIntroText(){
 
 var htmlString="";
 var el = document.getElementById('stats');
-console.log(response.length);
+console.log(response.data.length);
 for(var i = 0; i<response.length; i++){
 htmlString=htmlString+response[i].name+"<br>";
 console.log(response[i].name);
