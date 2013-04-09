@@ -75,8 +75,7 @@ function generateIntroText(){
   var htmlString="";
   htmlString+='<h3>Your name is '+name+'.<h3>';
   htmlString+='<img src="'+profile_pic+'"></img>';
-  htmlString+='*';
-  htmlString+='<small>This person is awesome.</small><br>';
+  htmlString+='<small> *This person is awesome.</small><br>';
   el.innerHTML = htmlString;
 
 });
@@ -102,7 +101,6 @@ for(var i = 0; i<response.data.length; i++){
 var friendInfo=response.data[i];
 if (friendInfo.sex=='male'){
         numMale++;
-
                                 }
                                 else{
                                   numFemale++;
@@ -129,12 +127,20 @@ revFirstName=firstName.split("").reverse().join("");
 //figure out longest, shortest
   var longest = 0;
   var shortest = 0;
+  var mostVowels=0;
+  var leastVowels=0;
 for(var i = 0; i < fullNames.length; i++){
     if(fullNames[i].length > fullNames[longest].length){
       longest = i;
     }
     if(fullNames[i].length < fullNames[shortest].length){
       shortest = i;
+    }
+    if (countVowels(fullNames[i])>countVowels(fullNames[mostVowels])){
+      mostVowels=i;
+    }
+        if (countVowels(fullNames[i])<countVowels(fullNames[leastVowels])){
+      leastVowels=i;
     }
 }
 
@@ -143,6 +149,19 @@ htmlString+="Number male: "+numMale+"<br>";
 htmlString+="Number female: "+numFemale+"<br>";
 htmlString+="Longest name: "+fullNames[longest]+" ("+fullNames[longest].length+")<br>";
 htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].length+")<br>";
+htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mostVowels])+")<br>";
+htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
+
+                          //most vowels
+                          //least vowels
+                          //most common first name
+                          //most common last name
+                          //most number of friends
+                          //least number of friends
+                          //most mutual friends
+                          //fewest mutual friends
+                          //first friend alpha
+                          //last friend alpha
 
 htmlString+="<br><p>";
 htmlString+="You've got "+palindromes.length+" friends with palindromic first names.<br>";
@@ -155,16 +174,6 @@ htmlString+="You should introduce them to Howard:</p>";
                   htmlString+=palindromes[i];
                   htmlString+="</a><br>";
                     }             
-                          //most vowels
-                          //least vowels
-                          //most common first name
-                          //most common last name
-                          //most number of friends
-                          //least number of friends
-                          //most mutual friends
-                          //fewest mutual friends
-                          //first friend alpha
-                          //last friend alpha
 el.innerHTML = htmlString;
 
 });
