@@ -151,8 +151,8 @@ htmlString+="Longest name: "+fullNames[longest]+" ("+fullNames[longest].length+"
 htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].length+")<br>";
 htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mostVowels])+")<br>";
 htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
-htmlString+="Most common first name: "+mode(firstNames)+"<br>";
-htmlString+="Most common last name: "+mode(lastNames)+"<br>";
+htmlString+="Most common first name: "+mode(firstNames)+" ("+firstNames.count(mode(firstNames))+")<br>";
+htmlString+="Most common last name: "+mode(lastNames)+" ("+lastNames.count(mode(lastNames))+")<br>";
 
                           //most common first name
                           //most common last name
