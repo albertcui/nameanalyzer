@@ -138,9 +138,6 @@ for($i = 0; $i < count($friendNames); $i++)
       <div class="navbar-inner">
         <div class="container">
           <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
-                 <ul class="nav pull-right">
-                <div class="fb-like" data-href="http://nameanalyzer.herokuapp.com" data-send="false" data-width="450" data-show-faces="true"></div>
-            </ul>
                 </div>
         </div>
     </div>
@@ -222,6 +219,7 @@ for($i = 0; $i < count($friendNames); $i++)
       <?php } ?>
 
 </div> <!-- hero unit -->
+                <div class="fb-like" data-href="<?=$_SERVER['PATH_INFO']?>" data-send="false" data-width="450" data-show-faces="true"></div>
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
