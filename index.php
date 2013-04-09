@@ -86,7 +86,7 @@ $userId = $facebook->getUser();
         A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        Source available. <a class="btn btn-primary" href="SOURCE">Github</a><br>
+        <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
       </p>
 <div class="hero-unit">
 <?php
@@ -95,9 +95,7 @@ $userId = $facebook->getUser();
           $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         ?>
         <p class="lead">Your name is <?=$userInfo['name']?>.<p>
-        <?php
-              
-               
+        <?php   
         echo "<img src=\"" . $profile_pic . "\"/>";
         ?>
 
