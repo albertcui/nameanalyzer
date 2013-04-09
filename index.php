@@ -9,10 +9,46 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <style>
+
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
       }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -91,7 +127,7 @@ $userId = $facebook->getUser();
 
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
-                $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
+                $profile_pic =  "http://graph.facebook.com/".$userId."/picture&type=large";
         echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
         ?>
          <p class="lead">You're <?=$userInfo['name']?>.  In case nobody's told you today, you're awesome. :)<p>
