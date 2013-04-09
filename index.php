@@ -51,8 +51,6 @@ window.location.reload();
 )};
 };
 
- 
-
     function logout() {
     FB.logout(function(response) {
         console.log('User is now logged out');
@@ -82,8 +80,32 @@ $facebook = new Facebook(array(
 ));
 
 $userId = $facebook->getUser();
+?>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
+            <div class="pull-right">
+                <button class="btn btn-danger" id="fb-logout" onclick="logout()">Log out</button>
+            </div>
+                </div>
+        </div>
+    </div>
 
-$fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
+    <div class="container">
+      <p class="lead">
+        A variety of mostly pointless stats about your friends' names.<br>
+        Written in PHP with vague hints of JavaScript.<br>
+        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
+        <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
+      </p>
+
+<div class="hero-unit">
+
+<?php
+      if ($userId) {
+        
+        $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
                                'method' => 'fql.query',
@@ -143,30 +165,6 @@ for($i = 0; $i < count($friendNames); $i++)
     }
 }
 
-?>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
-            <div class="pull-right">
-                <button class="btn btn-danger" id="fb-logout" onclick="logout()">Log out</button>
-            </div>
-                </div>
-        </div>
-    </div>
-
-    <div class="container">
-      <p class="lead">
-        A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with vague hints of JavaScript.<br>
-        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
-      </p>
-
-<div class="hero-unit">
-
-<?php
-      if ($userId) { 
         $userInfo = $facebook->api('/' . $userId);
           $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         ?>
