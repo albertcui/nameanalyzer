@@ -46,6 +46,19 @@
               xfbml      : true  // parse XFBML
             });
 
+FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        // User logged into FB and authorized
+        document.getElementById('fb-logout').style.display = 'block';
+    } else if (response.status === 'not_authorized') {
+        // User logged into FB but not authorized
+        document.getElementById('fb-login').style.display = 'block';
+    } else {
+        // User not logged into FB
+        document.getElementById('fb-login').style.display = 'block';
+    }
+});
+
 FB.Event.subscribe('auth.login', function(response){
 window.location.reload();
 )};
@@ -104,7 +117,7 @@ $userId = $facebook->getUser();
 
 <?php
       if ($userId) {
-        
+
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
@@ -226,7 +239,7 @@ for($i = 0; $i < count($friendNames); $i++)
                } 
         else { ?>
         <h2>Log in to Facebook to begin:</h2>
-      <fb:login-button size="large" data-show-faces="true"></fb:login-button>
+      <fb:login-button id="fb-login" size="large" data-show-faces="true"></fb:login-button>
       <?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
