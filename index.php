@@ -9,7 +9,7 @@
 
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
-
+    
     <style type="text/css">
 
       /* Sticky footer styles
@@ -49,6 +49,22 @@
         }
       }
 
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      #wrap > .container {
+        padding-top: 60px;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+      code {
+        font-size: 80%;
+      }
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -130,7 +146,7 @@ $userId = $facebook->getUser();
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture&type=large";
         echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
         ?>
-         <p class="lead">You're <?=$userInfo['name']?>.  In case nobody's told you today, you're awesome. :)<p>
+         <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
 
                                 
                                 <?php
