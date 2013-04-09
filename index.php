@@ -143,7 +143,7 @@ $userId = $facebook->getUser();
 
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
-                $profile_pic =  "http://graph.facebook.com/".$userId."/picture&type=large";
+                $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
         ?>
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
