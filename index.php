@@ -83,7 +83,7 @@ $userId = $facebook->getUser();
     <div class="container">
       <p class="lead">
         A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP and some JavaScript, with vague hints of Bootstrap for the frontend.<br>
+        Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
          <a class="btn btn-primary" href="SOURCE">Source available.</a><br>
       </p>
@@ -94,7 +94,7 @@ $userId = $facebook->getUser();
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        echo "<img src=\"" . $profile_pic . "\"/> <span class='arrow' rel='270'></span> What an amazing person!<br>";
+        echo "<span class='arrow' rel='270'></span><img src=\"" . $profile_pic . "\"/> What an amazing person!<br>";
         ?>
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
 
