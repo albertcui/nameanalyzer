@@ -56,9 +56,7 @@ FB.getLoginStatus(function(response) {
   var img_link = "http://graph.facebook.com/"+response.id+"/picture?type=large";
 });
   var el = document.getElementById('intro');
-  el.html = '<h3>Your name is USERNAME HERE.<h3>
-        <img src="'+img_link+'"></img>
-        <small>*This person is amazing.</small><br>';
+  el.html = '<h3>Your name is USERNAME HERE.<h3><img src="'+img_link+'"></img><small>*This person is amazing.</small><br>';
 
  document.getElementById('data').style.display = 'block';
 document.getElementById('login').style.display = 'none';
