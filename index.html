@@ -49,6 +49,7 @@
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     generateIntroText();
+    generateStats();
  document.getElementById('data').style.display = 'block';
 document.getElementById('login').style.display = 'none';
   }
@@ -68,60 +69,23 @@ function generateIntroText(){
   FB.api('/me', function(response) {
   var name=response.name;
   var profile_pic = "http://graph.facebook.com/"+response.id+"/picture?type=large";
-    var el = document.getElementById('intro');
-  el.innerHTML = '<h3>Your name is '+name+'.<h3><img src="'+profile_pic+'"></img><small>*This person is amazing.</small><br>';
+  var el = document.getElementById('intro');
+  el.innerHTML = '<h3>Your name is '+name+'.<h3><img src="'+profile_pic+'"></img><small> *This person is amazing.</small><br>';
 });
 
+  function generateStats(){
 
-}
-
-  // Load the SDK Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-</script>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
-                </div>
-        </div>
-    </div>
-
-    <div class="container">
-      <p class="lead">
-        A variety of mostly pointless stats about your friends' names.<br>
-        Written in JavaScript, with some CSS and jQuery.  (formerly PHP, but PHP sucks sometimes)<br>
-        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
-      </p>
-
-<div class="hero-unit">
-<div id="data">
-
-<div id="intro">
-</div>
-
-<div class="lead">
-</div>
-        
-<!--replace with JS
-
- FB.api('fql', { q: 'query here' }, function (response)
+ FB.api('fql', { q: 'SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())' }, function (response)
 {
- //Logic here
-};
-        $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
-                 
-                          $response = $facebook->api(array(
-                               'method' => 'fql.query',
-                               'query' =>$fql,
-                          ));
+var htmlString="";
+for(var i = 0, i<response.length; i++){
+var el = document.getElementById('intro');
+htmlString=htmlString+response.name;
+}
+  el.innerHTML = htmlString;
+});
+
+/*
                           $friendNames=array();
                           $firstNames=array();
                           $lastNames=array();
@@ -213,13 +177,50 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo "</a>";
                     echo "<br>";
                     }             
--->
+*/
+}
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
+                </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <p class="lead">
+        A variety of mostly pointless stats about your friends' names.<br>
+        Written in JavaScript, with some CSS and jQuery.  (formerly PHP, but PHP sucks sometimes)<br>
+        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
+        <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
+      </p>
+
+<div class="hero-unit">
+<div id="data">
+
+<div id="intro">
+</div>
+
+<div id="stats" class="lead">
+</div>
 
 </div>
 
 <div id="login">
 <h2>Log in to Facebook to begin.</h2>
 <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
+</div>
 
 </div> <!-- hero unit -->
     </div> <!-- /container -->
