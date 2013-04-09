@@ -140,25 +140,17 @@ $userId = $facebook->getUser();
 
                  $longest = 0;
                  $shortest = 0;
-                 $numCharsLong;
-                 $numCharsShort;
-                 var_dump($friendNames);
 
 for($i = 0; $i < count($friendNames); $i++)
 {
-  if($i > 0)
-  {
     if(strlen($array[$i]) > strlen($array[$longest]))
     {
       $longest = $i;
-      $numCharsLong=strlen($array[$longest]);
     }
-        if(strlen($array[$i]) < strlen($array[$shortest]))
+    if(strlen($array[$i]) < strlen($array[$shortest]))
     {
       $shortest = $i;
-      $numCharsShort=strlen($array[$shortest]);
     }
-  }
 }
 
                  echo "Number of friends: ".count($friendNames);
@@ -170,9 +162,9 @@ for($i = 0; $i < count($friendNames); $i++)
                  echo "Number female: ".$numFemale;
                                                  echo "<br>";
 
-                echo "Longest name: ".$array[$longest]." (".$numCharsLong.")";
+                echo "Longest name: ".$array[$longest]." (".strlen($array[$longest]).")";
                 echo "<br>";
-                echo "Shortest name: ".$array[$shortest]." (".$numCharsShort.")";
+                echo "Shortest name: ".$array[$shortest]." (".strlen($array[$shortest]).")";
                   echo "<br>";
 
                           //most vowels
