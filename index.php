@@ -112,7 +112,7 @@ $facebook = new Facebook(array(
 
 $userId = $facebook->getUser();
 ?>
-
+<div id="wrap">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -135,7 +135,7 @@ $userId = $facebook->getUser();
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
-        echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
+        echo "<img src=\"" . $profile_pic . "\"/> <span class='arrow' rel='270'></span> What an amazing person!<br>";
         ?>
          <p class="lead">Your name is <?=$userInfo['name']?>.  You're awesome. :)<p>
 
@@ -209,9 +209,10 @@ $userId = $facebook->getUser();
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">Created by Howard Chung, who probably has some more productive to do.</p>
+        <p class="muted credit">Created by Howard Chung, who probably has something more productive to do right now.</p>
       </div>
     </div>
+  </div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
