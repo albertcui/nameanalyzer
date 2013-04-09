@@ -171,7 +171,6 @@ for($i = 0; $i < count($friendNames); $i++)
                 </div>
         </div>
     </div>
- <button id="fb-logout" onclick="logout()">Log out</button>
 
     <div class="container">
       <p class="lead">
@@ -249,6 +248,8 @@ for($i = 0; $i < count($friendNames); $i++)
       <fb:login-button size="large"></fb:login-button>
       <?php } ?>
 </div> <!-- hero unit -->
+     <button id="fb-logout" onclick="logout()">Log out</button>
+
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
