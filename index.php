@@ -88,7 +88,9 @@ $userId = $facebook->getUser();
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
       </p>
+
 <div class="hero-unit">
+
 <?php
       if ($userId) { 
         $userInfo = $facebook->api('/' . $userId);
@@ -99,7 +101,7 @@ $userId = $facebook->getUser();
         echo "<img src=\"" . $profile_pic . "\"/>";
         ?>
 
-<span class="lead">This person is amazing.</span><br>
+<p class="text-info">*This person is amazing.</p>
 
         <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
