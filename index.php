@@ -119,6 +119,7 @@ $userId = $facebook->getUser();
 
                                echo "<img src=\"" . $profile_pic . "\" /><br>"; 
                       
+                 }
                  } 
 
                   else { ?>
