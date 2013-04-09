@@ -126,7 +126,7 @@ $userId = $facebook->getUser();
         A variety of mostly pointless stats about your friends' names.<br>
         Written in PHP with JavaScript FB login, with vague hints of Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        Source available.<br>
+        Source available. <button class="btn btn-primary" href="SOURCE"><br>
       </p>
 
 <?php
