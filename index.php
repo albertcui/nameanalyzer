@@ -46,15 +46,19 @@
               xfbml      : true  // parse XFBML
             });
 
+// Additional init code here
 FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
-        // connected
+        // User logged into FB and authorized
+        testAPI();
+        document.getElementById('fb-logout').style.display = 'block';
     } else if (response.status === 'not_authorized') {
-        // not_authorized
+        // User logged into FB but not authorized
         login();
     } else {
-        // not_logged_in
+        // User not logged into FB
         login();
+        document.getElementById('fb-logout').style.display = 'block';
     }
 });
 };
@@ -69,6 +73,12 @@ FB.getLoginStatus(function(response) {
             // cancelled
         }
     });
+
+    function logout() {
+    FB.logout(function(response) {
+        console.log('User is now logged out');
+    });
+}
 }
 
   // Load the SDK Asynchronously
@@ -161,6 +171,7 @@ for($i = 0; $i < count($friendNames); $i++)
                 </div>
         </div>
     </div>
+ <button id="fb-logout" onclick="logout()">Log out</button>
 
     <div class="container">
       <p class="lead">
