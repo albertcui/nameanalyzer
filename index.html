@@ -111,14 +111,15 @@ lastNames.push(lastName);
 //lowercase the first name for palindrome check
 firstName=firstName.toLowerCase();
 
-                                if (reverse(firstName==firstName){
+                                if (reverse(firstName)==firstName){
                                   palindromes.push(fullName);
                                   palinIds.push(friendId);
                                 }
+    }
 
+//figure out longest, shortest
   var longest = 0;
   var shortest = 0;
-
 for(var i = 0; i < friendNames.length; i++){
     if(friendNames[i].length > friendNames[longest].length){
       longest = i;
@@ -128,9 +129,12 @@ for(var i = 0; i < friendNames.length; i++){
     }
 }
 
-htmlString=htmlString+response.data[i].name+"<br>";
-}
-  el.innerHTML = htmlString;
+htmlString+="Number of friends: "+friendNames.length+"<br>";
+htmlString+="Number male: "+numMale+"<br>";
+htmlString+="Number female: "+numFemale+"<br>";
+
+el.innerHTML = htmlString;
+
 });
 }
 
@@ -148,15 +152,6 @@ function reverse(string) {
    }(document));
 
 /*
-
-          echo "Number of friends: ".count($friendNames);
-          echo "<br>";
-          
-                 echo "Number male: ".$numMale;
-                  echo "<br>";
-
-                 echo "Number female: ".$numFemale;
-                 echo "<br>";
 
                 echo "Longest name: ".$friendNames[$longest]." (".strlen($friendNames[$longest]).")";
                 echo "<br>";
