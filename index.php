@@ -81,21 +81,23 @@ $userId = $facebook->getUser();
     <div class="container">
       <div class="lead">
       <p>A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with JavaScript FB login, with a light covering of Bootstrap for the frontend.<br>
+        Written in PHP with JavaScript FB login, with vague hints of Bootstrap for the frontend.<br>
+        Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         Source available.<br>
-        Some of your friends won't show up here because they're lame and aren't opted into Facebook's API. Boo.<br>
       </p>
 
 <?php
       if ($userId) { 
+
               $userInfo = $facebook->api('/' . $userId);
-              echo "You are:<br>";
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
-        echo "<img src=\"" . $profile_pic . "\"/>";
-                      echo $userInfo['name'];
+        echo "<img src=\"" . $profile_pic . "\"/> <- What an amazing person!<br>";
+        ?>
+        You are <?=$userInfo['name']?>, from <?=$userInfo['hometown']?>.  In case nobody's told you today, you're awesome. :)<br>
 
-                                echo "<br>";
+                                
+                                <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
