@@ -149,12 +149,12 @@ for($i = 0; $i < count($friendNames); $i++)
     if(strlen($array[$i]) > strlen($array[$longest]))
     {
       $longest = $i;
-      $numCharsLong=strlen($array[$longest];
+      $numCharsLong=strlen($array[$longest]);
     }
         if(strlen($array[$i]) < strlen($array[$shortest]))
     {
       $shortest = $i;
-      $numCharsShort=strlen($array[$shortest];
+      $numCharsShort=strlen($array[$shortest]);
     }
   }
 }
