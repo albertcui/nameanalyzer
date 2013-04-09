@@ -184,8 +184,8 @@ for($i = 0; $i < count($friendNames); $i++)
                  } 
 
         else { ?>
-        <h1>Log in to Facebook to begin:</h1>
-      <fb:login-button size="xlarge"></fb:login-button>
+        <h2>Log in to Facebook to begin:</h2>
+      <fb:login-button size="large"></fb:login-button>
       <?php } ?>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
