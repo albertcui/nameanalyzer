@@ -110,7 +110,7 @@ lastNames.push(lastName);
 
 //lowercase the first name for palindrome check
 firstName=firstName.toLowerCase();
-revFirstName=firstName.split("”).reverse().join(”");
+revFirstName=firstName.split("").reverse().join("");
 
                                 if (revFirstName==firstName){
                                   palindromes.push(fullName);
@@ -121,16 +121,16 @@ revFirstName=firstName.split("”).reverse().join(”");
 //figure out longest, shortest
   var longest = 0;
   var shortest = 0;
-for(var i = 0; i < friendNames.length; i++){
-    if(friendNames[i].length > friendNames[longest].length){
+for(var i = 0; i < fullNames.length; i++){
+    if(fullNames[i].length > fullNames[longest].length){
       longest = i;
     }
-    if(friendNames[i].length < friendNames[shortest].length){
+    if(fullNames[i].length < fullNames[shortest].length){
       shortest = i;
     }
 }
 
-htmlString+="Number of friends: "+friendNames.length+"<br>";
+htmlString+="Number of friends: "+fullNames.length+"<br>";
 htmlString+="Number male: "+numMale+"<br>";
 htmlString+="Number female: "+numFemale+"<br>";
 
@@ -150,9 +150,9 @@ el.innerHTML = htmlString;
 
 /*
 
-                echo "Longest name: ".$friendNames[$longest]." (".strlen($friendNames[$longest]).")";
+                echo "Longest name: ".$fullNames[$longest]." (".strlen($fullNames[$longest]).")";
                 echo "<br>";
-                echo "Shortest name: ".$friendNames[$shortest]." (".strlen($friendNames[$shortest]).")";
+                echo "Shortest name: ".$fullNames[$shortest]." (".strlen($fullNames[$shortest]).")";
                   echo "<br>";
 
                           //most vowels
