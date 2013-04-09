@@ -1,16 +1,3 @@
-<?php
-
-//uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
-require 'facebookphp/src/facebook.php';
-
-$facebook = new Facebook(array(
-  'appId'  => '159049770927427',
-  'secret' => '575e89c0f7ce4c7ddf7636becd609842',
-));
-
-$userId = $facebook->getUser();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,8 +50,6 @@ FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
  document.getElementById('data').style.display = 'block';
 document.getElementById('login').style.display = 'none';
-
-
   }
   } else {
      document.getElementById('data').style.display = 'none';
@@ -98,13 +83,14 @@ window.location.reload();
     <div class="container">
       <p class="lead">
         A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with vague hints of JavaScript.<br>
+        Written in JavaScript, with some CSS and jQuery.  (formerly PHP, but PHP sucks sometimes)<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         <a class="btn btn-primary" href="https://github.com/howardc93/nameanalyzer">Get the source on Github</a><br>
       </p>
 
 <div class="hero-unit">
 <div id="data">
+
 <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
@@ -144,12 +130,7 @@ window.location.reload();
                                 if (strrev($firstName)==$firstName){
                                   $palindromes[$friendId]=$friendName;
                                 }
-
                  }
-
-function CountVowels($String) {
-  return preg_match_all('/[aeiou]/i',$string,$matches);
-}
 
                  $longest = 0;
                  $shortest = 0;
