@@ -165,10 +165,8 @@ htmlString+="Most vowels: "+fullNames[mostVowels]+" ("+countVowels(fullNames[mos
 htmlString+="Least vowels: "+fullNames[leastVowels]+" ("+countVowels(fullNames[leastVowels])+")<br>";
 htmlString+="Most common first name: "+mode(firstNames)[0]+" ("+mode(firstNames)[1]+")<br>";
 htmlString+="Most common last name: "+mode(lastNames)[0]+" ("+mode(lastNames)[1]+")<br>";
-htmlString+="Friend with the most friends: "+fullNames[mostFriends]+" ("+response.data[mostFriends].friend_count+")<br>";
-htmlString+="Friend with the most mutual friends: "+fullNames[mostMutFriends]+" ("+response.data[mostMutFriends].mutual_friend_count+")<br>";
-                          //most number of friends
-                          //most mutual friends
+htmlString+="Most friends: "+fullNames[mostFriends]+" ("+response.data[mostFriends].friend_count+")<br>";
+htmlString+="Most mutual friends: "+fullNames[mostMutFriends]+" ("+response.data[mostMutFriends].mutual_friend_count+")<br>";
 
 //sort last, it breaks other variables        
 fullNames.sort()
