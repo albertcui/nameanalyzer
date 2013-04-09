@@ -124,11 +124,11 @@ $userId = $facebook->getUser();
     <div class="container">
       <p class="lead">
         A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with JavaScript FB login, with vague hints of Bootstrap for the frontend.<br>
+        Written in PHP and some JavaScript, with vague hints of Bootstrap for the frontend.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
-        Source available. <button class="btn btn-primary" href="SOURCE"><br>
+        Source available. <a class="btn btn-primary" href="SOURCE">Github</a><br>
       </p>
-
+<div class="hero-unit">
 <?php
       if ($userId) { 
 
@@ -204,7 +204,7 @@ $userId = $facebook->getUser();
         <h1>Log in to Facebook to begin:</h1>
       <fb:login-button size="xlarge"></fb:login-button>
                   <?php } ?>
-
+</div> <!-- hero unit -->
     </div> <!-- /container -->
 
     <div id="footer">
