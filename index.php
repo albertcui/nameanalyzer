@@ -98,9 +98,6 @@ $userId = $facebook->getUser();
       <div class="navbar-inner">
         <div class="container">
           <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
-            <div class="pull-right">
-                <button class="btn btn-danger" id="fb-logout" onclick="logout()">Log out</button>
-            </div>
                 </div>
         </div>
     </div>
@@ -238,9 +235,10 @@ for($i = 0; $i < count($friendNames); $i++)
 <?php
                } 
         else { ?>
-        <h2>Log in to Facebook to begin:</h2>
-<div id="fb-login" class="fb-login-button" data-show-faces="true" size="large"></div>      
+<h2>Log in to Facebook to begin.</h2>
 <?php } ?>
+<div id="fb-login" class="fb-login-button" data-show-faces="true" size="large"></div>
+<button class="btn btn-danger" id="fb-logout" onclick="logout()">Log out</button>
 </div> <!-- hero unit -->
     </div> <!-- /container -->
     <!-- Le javascript
