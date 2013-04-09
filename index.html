@@ -206,10 +206,6 @@ function mode(array)
     return maxEl;
 }
 
-$(function () {
-     $('.arrow, [class^=arrow-]').bootstrapArrows();.
-     });
-
   // Load the SDK Asynchronously
   (function(d){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -272,7 +268,11 @@ $(function () {
     <script src="../assets/js/bootstrap-collapse.js"></script>
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
-    <script src="../assets/js/bootstrap-arrows.js"></script>
+    <script src="../assets/js/bootstrap-arrows.js">
+$(function () {
+     $('.arrow, [class^=arrow-]').bootstrapArrows();.
+     });
+    </script>
 
 
   </body>
