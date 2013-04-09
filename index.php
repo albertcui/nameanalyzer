@@ -61,7 +61,7 @@
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
       </script>
-<?php 
+<?php
 
 //uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
 require 'facebookphp/src/facebook.php';
@@ -140,12 +140,17 @@ for($i = 0; $i < count($friendNames); $i++)
           <a href"/" class="brand">Facebook Friend Name Analyzer, by Howard Chung</a>
         </div>
       </div>
+       <ul class="nav pull-right">
+              <li class='pull-right'>
+                <div class="fb-like" data-href="http://nameanalyzer.herokuapp.com" data-send="false" data-width="450" data-show-faces="true"></div>
+        </li>
+            </ul>
     </div>
 
     <div class="container">
       <p class="lead">
         A variety of mostly pointless stats about your friends' names.<br>
-        Written in PHP with vague hints of JavaScript, and Bootstrap for the frontend.<br>
+        Written in PHP with vague hints of JavaScript.<br>
         Some of your friends won't show up here because they aren't opted into Facebook's API. Boo.<br>
         <a class="btn btn-primary" href="SOURCE">Get the source on Github</a><br>
       </p>
