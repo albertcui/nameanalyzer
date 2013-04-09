@@ -92,7 +92,7 @@ $userId = $facebook->getUser();
         echo "<br><br><img src=\"" . $profile_pic . "\"/>";
 
         echo "Your friends:<br>";
-        $fql = "SELECT uid1 FROM friend WHERE uid2 = me()";
+        $fql = "SELECT uid, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
                                'method' => 'fql.query',
@@ -100,11 +100,12 @@ $userId = $facebook->getUser();
                           ));
 
                               foreach ($response as &$friend) {
-                                $friendId=$friend['uid1'];
+                                $friendId=$friend['uid'];
                                 $friendName=$friend['name'];
-                                echo $friendName;
-                          $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
 
+                                echo $friendName;
+
+                          $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
         
 
                                echo "<img src=\"" . $profile_pic . "\" /><br>"; 
