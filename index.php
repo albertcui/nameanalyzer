@@ -189,8 +189,9 @@ for($i = 0; $i < count($friendNames); $i++)
                           //least wall posts
                           //first friend alpha
                           //last friend alpha
-                  echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
-                  echo "That's these people: <br>";
+                  echo "<p class='text-info'>You've got ".count($palindromes)." friends with palindromic first names.";
+                  echo "People with palindromic names are awesome, so you should introduce them to Howard.";
+                  echo "That's these people:</p>";
                   foreach ($palindromes as $id => $name) {
                   $profile_pic =  "http://graph.facebook.com/".$id."/picture";
                   echo "<a href=\"http://facebook.com/".$id."\">";
