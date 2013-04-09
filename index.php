@@ -98,8 +98,27 @@ $userId = $facebook->getUser();
               $userInfo = $facebook->api('/' . $userId);
               echo $userInfo['name'];
                 //create the url
-                $profile_pic =  "http://graph.facebook.com/".$userId."/picture?height=200&width=200";
+                $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
         echo "<br><br><img src=\"" . $profile_pic . "\"/>";
+
+        echo "Your friends:<br>";
+        $fql = "SELECT uid1 FROM friend WHERE uid2 = me()";
+                 
+                          $response = $facebook->api(array(
+                               'method' => 'fql.query',
+                               'query' =>$fql,
+                          ));
+
+                              foreach ($response as &$friend) {
+                                $friendId=$friend['uid'];
+                                $friendName=$friend['name'];
+                                echo $friendName;
+                          $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
+
+        
+
+                               echo "<img src=\"" . $profile_pic . "\" /><br>"; 
+                      
                  } 
 
                   else { ?>
