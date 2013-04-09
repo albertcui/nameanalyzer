@@ -73,7 +73,7 @@ $userId = $facebook->getUser();
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Facebook Friend Name Analyzer</a>
+          <span class="brand">Facebook Friend Name Analyzer</span>
         </div>
       </div>
     </div>
@@ -114,6 +114,8 @@ $userId = $facebook->getUser();
                           //mutual friend count
                           //most wall posts
                           //least wall posts
+                          //first friend alpha
+                          //last friend alpha
 
                               foreach ($response as &$friend) {
                                 $friendId=$friend['uid'];
