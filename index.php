@@ -142,6 +142,8 @@ $userId = $facebook->getUser();
                  $shortest = 0;
                  $numCharsLong;
                  $numCharsShort;
+                 var_dump($friendNames);
+
 for($i = 0; $i < count($friendNames); $i++)
 {
   if($i > 0)
