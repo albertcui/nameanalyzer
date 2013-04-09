@@ -10,6 +10,9 @@
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-arrows.css" rel="stylesheet">
+
+
 
     <style type="text/css">
       body {
@@ -46,10 +49,11 @@
 
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
+document.getElementById('data').style.display = 'block';
+document.getElementById('login').style.display = 'none';
     generateIntroText();
     generateStats();
- document.getElementById('data').style.display = 'block';
-document.getElementById('login').style.display = 'none';
+
   }
 else {
      document.getElementById('data').style.display = 'none';
@@ -71,7 +75,8 @@ function generateIntroText(){
   var htmlString="";
   htmlString+='<h3>Your name is '+name+'.<h3>';
   htmlString+='<img src="'+profile_pic+'"></img>';
-  htmlString+='<small><-This person is amazing.</small><br>';
+  htmlString+='<span class="arrow-info" rel="270"></span>';
+  htmlString+='<small>This person is awesome.</small><br>';
   el.innerHTML = htmlString;
 
 });
@@ -79,7 +84,7 @@ function generateIntroText(){
 
   function generateStats(){
 
- FB.api('fql', { q: 'SELECT uid, first_name, last_name, sex, mutual_friend_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())' }, function (response)
+ FB.api('fql', { q: 'SELECT uid, first_name, last_name, sex, friend_count, mutual_friend_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())' }, function (response)
 {
 
 var htmlString="";
@@ -141,8 +146,7 @@ htmlString+="Shortest name: "+fullNames[shortest]+" ("+fullNames[shortest].lengt
 
 htmlString+="<br><p>";
 htmlString+="You've got "+palindromes.length+" friends with palindromic first names.<br>";
-htmlString+="People with palindromic names are awesome, so you should introduce them to Howard.<br>";
-htmlString+="That's these people:</p>";
+htmlString+="You should introduce them to Howard:</p>";
 
                   for (var i=0;i<palindromes.length;i++){
                   profile_pic = "http://graph.facebook.com/"+palinIds[i]+"/picture";
@@ -157,12 +161,49 @@ htmlString+="That's these people:</p>";
                           //most common last name
                           //most number of friends
                           //least number of friends
-                          //highest mutual friend count
+                          //most mutual friends
+                          //fewest mutual friends
                           //first friend alpha
                           //last friend alpha
 el.innerHTML = htmlString;
 
 });
+}
+
+function countVowels(str) {
+var count = 0;
+for (var i = 0; i < str.length; i++) {
+if (str.charAt(i).match(/[a-zA-Z]/) != null) {
+// findVowels
+if (str.charAt(i).match(/[aeiouAEIOU]/))
+{
+count++;
+}
+}
+}
+return count;
+}
+
+function mode(array)
+{
+    if(array.length == 0)
+      return null;
+    var modeMap = {};
+    var maxEl = array[0], maxCount = 1;
+    for(var i = 0; i < array.length; i++)
+    {
+      var el = array[i];
+      if(modeMap[el] == null)
+        modeMap[el] = 1;
+      else
+        modeMap[el]++;  
+      if(modeMap[el] > maxCount)
+      {
+        maxEl = el;
+        maxCount = modeMap[el];
+      }
+    }
+    return maxEl;
 }
 
   // Load the SDK Asynchronously
@@ -227,6 +268,8 @@ el.innerHTML = htmlString;
     <script src="../assets/js/bootstrap-collapse.js"></script>
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="../assets/js/bootstrap-arrows.js"></script>
+
 
   </body>
 </html>
