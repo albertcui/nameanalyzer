@@ -137,7 +137,11 @@ $userId = $facebook->getUser();
 
                                 $firstName=$friend['first_name'];
                                 $firstNames[]=$firstName;
-                     
+
+
+                                //lowercase the first name for palindrome check
+                                $firstName=strtolower($firstName);
+
                                 if (strrev($firstName)==$firstName){
                                   $palindromes[]=$friendName;
                                 }
