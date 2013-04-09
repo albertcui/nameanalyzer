@@ -34,10 +34,11 @@
   </head>
 
   <body>
-<div id="fb-root"></div>
-      <script>
 
-       window.fbAsyncInit = function() {
+    <div id="fb-root"></div>
+<script>
+  // Additional JS functions here
+ window.fbAsyncInit = function() {
             FB.init({
               appId      : '159049770927427', // App ID
               status     : true, // check login status
@@ -45,22 +46,41 @@
               xfbml      : true  // parse XFBML
             });
 
+FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        // connected
+    } else if (response.status === 'not_authorized') {
+        // not_authorized
+        login();
+    } else {
+        // not_logged_in
+        login();
+    }
+});
+};
 
-             FB.Event.subscribe('auth.login',function(response){
-                    window.location.reload()
-              });
+  function login() {
+    FB.login(function(response) {
+        if (response.authResponse) {
+            // connected
+            window.location.reload();
 
-          };
+        } else {
+            // cancelled
+        }
+    });
+}
 
-          // Load the SDK Asynchronously
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/all.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
-      </script>
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
 <?php
 
 //uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
