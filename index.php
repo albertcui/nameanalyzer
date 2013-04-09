@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Facebook Friend Name Analyzer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -77,7 +77,7 @@ $userId = $facebook->getUser();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Facebook Friend Name Analyzer</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -90,8 +90,8 @@ $userId = $facebook->getUser();
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <h1>Friend Name Analyzer</h1>
+      <p>A variety of mostly pointless stats about your friends' names.</p>
 
 <?php
       if ($userId) { 
@@ -100,7 +100,6 @@ $userId = $facebook->getUser();
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?height=200&width=200";
         echo "<br><br><img src=\"" . $profile_pic . "\"/>";
-
                  } 
 
                   else { ?>
