@@ -91,12 +91,13 @@ $userId = $facebook->getUser();
 <div class="hero-unit">
 <?php
       if ($userId) { 
+        $userInfo = $facebook->api('/' . $userId);
+          $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         ?>
         <p class="lead">Your name is <?=$userInfo['name']?>.<p>
         <?php
-              $userInfo = $facebook->api('/' . $userId);
-                //create the url
-                $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
+              
+               
         echo "<img src=\"" . $profile_pic . "\"/>";
         ?>
 
