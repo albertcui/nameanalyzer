@@ -79,30 +79,47 @@ $userId = $facebook->getUser();
     </div>
 
     <div class="container">
-
-      <h1>Friend Name Analyzer</h1>
       <p>A variety of mostly pointless stats about your friends' names.</p>
 
 <?php
       if ($userId) { 
               $userInfo = $facebook->api('/' . $userId);
-              echo "You are: ";
-              echo $userInfo['name'];
+              echo "You are:<br>";
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture";
-        echo "<img src=\"" . $profile_pic . "\"/><br><br>";
+        echo "<img src=\"" . $profile_pic . "\"/>";
+                      echo $userInfo['name'];
+                                echo "<br>";
 
         echo "Your friends:<br>";
-        $fql = "SELECT uid, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
+        $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
                           $response = $facebook->api(array(
                                'method' => 'fql.query',
                                'query' =>$fql,
                           ));
+                          $friendNames=[];
+                          //total number friends
+                          //number male
+                          //number female
+                          //longest name
+                          //shortest name
+                          //most vowels
+                          //least vowels
+                          //palindromes
+                          //most common first name
+                          //most common last name
+                          //most number of friends
+                          //least number of friends
+                          //mutual friend count
+                          //most wall posts
+                          //least wall posts
 
                               foreach ($response as &$friend) {
                                 $friendId=$friend['uid'];
                                 $friendName=$friend['name'];
+                                $friendNames[]=$friendName;
+
                           $profile_pic =  "http://graph.facebook.com/".$friendId."/picture";
 
                                echo "<img src=\"" . $profile_pic . "\" />";
@@ -115,7 +132,7 @@ $userId = $facebook->getUser();
 
                   else { ?>
         <h1>Log in to Facebook to begin:</h1>
-      <fb:login-button></fb:login-button>
+      <fb:login-button size="xlarge"></fb:login-button>
                   <?php } ?>
 
 
