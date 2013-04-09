@@ -91,17 +91,17 @@ $userId = $facebook->getUser();
 <div class="hero-unit">
 <?php
       if ($userId) { 
-
+        ?>
+        <p class="lead">Your name is <?=$userInfo['name']?>.<p>
+        <?php
               $userInfo = $facebook->api('/' . $userId);
                 //create the url
                 $profile_pic =  "http://graph.facebook.com/".$userId."/picture?type=large";
         echo "<img src=\"" . $profile_pic . "\"/>";
-
         ?>
-This person is amazing.
-         <p class="lead">Your name is <?=$userInfo['name']?>.<p>
 
-                                
+<span class="lead">This person is amazing.</span>
+
         <?php
         $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count, name from user where uid IN (SELECT uid1 FROM friend WHERE uid2 = me())";
                  
@@ -180,7 +180,7 @@ for($i = 0; $i < count($friendNames); $i++)
                           //first friend alpha
                           //last friend alpha
                           //palindromes
-                  echo "People with palindromic names are awesome, so you should introduce them to Howard.";
+                  echo "*People with palindromic names are awesome, so you should introduce them to Howard.";
                  } 
 
         else { ?>
