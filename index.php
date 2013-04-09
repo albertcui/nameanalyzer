@@ -61,7 +61,7 @@
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
       </script>
-                  <?php 
+<?php 
 
 //uses the PHP SDK.  Download from https://github.com/facebook/facebook-php-sdk
 require 'facebookphp/src/facebook.php';
@@ -113,6 +113,10 @@ $fql = "SELECT uid, first_name, last_name, sex, mutual_friend_count, wall_count,
                                 }
 
                  }
+
+function CountVowels($String) {
+  return preg_match_all('/[aeiou]/i',$string,$matches);
+}
 
                  $longest = 0;
                  $shortest = 0;
@@ -184,24 +188,11 @@ for($i = 0; $i < count($friendNames); $i++)
                           //most common last name
                           //most number of friends
                           //least number of friends
-                          //mutual friend count
-                          //most wall posts
-                          //least wall posts
+                          //highest mutual friend count
                           //first friend alpha
                           //last friend alpha
 
-
-                 ?>
-                                </span>
-<?php
-               } 
-        else { ?>
-        <h2>Log in to Facebook to begin:</h2>
-      <fb:login-button size="large"></fb:login-button>
-      <?php } ?>
-
-</div> <!-- hero unit -->
-<?php
+                  echo "<br>";
                   echo "<p class='text-success'>";
                   echo "You've got ".count($palindromes)." friends with palindromic first names.<br>";
                   echo "People with palindromic names are awesome, so you should introduce them to Howard.<br>";
@@ -216,7 +207,18 @@ for($i = 0; $i < count($friendNames); $i++)
                     echo "</a>";
                     echo "<br>";
                     }
-?>
+
+
+                 ?>
+                                </span>
+<?php
+               } 
+        else { ?>
+        <h2>Log in to Facebook to begin:</h2>
+      <fb:login-button size="large"></fb:login-button>
+      <?php } ?>
+
+</div> <!-- hero unit -->
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
