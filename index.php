@@ -138,7 +138,7 @@ $userId = $facebook->getUser();
                                 $firstName=$friend['first_name'];
                                 $firstNames[]=$firstName;
                      
-                                if (strrev($friendName)==$friendName){
+                                if (strrev($firstName)==$firstName){
                                   $palindromes[]=$friendName;
                                 }
 
